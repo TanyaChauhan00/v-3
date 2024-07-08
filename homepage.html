@@ -1,0 +1,119 @@
+
+<div class="container-fluid g-0">
+  <div class="banner-1" style="background-image: url({{homePageData?.navigate_business_sections?.banner_image}});">
+    <div class="content-wrapper">
+      <div class="content">
+        <h1>{{homePageData?.navigate_business_sections?.title}}</h1>
+        <p>{{homePageData?.navigate_business_sections?.description}}</p>
+        <div class="d-flex justify-content-center">
+          <div (click)="findBusiness()">
+            <button class="btn find-buisness-btn">Find a Business</button>
+          </div>
+          <div class="ms-3">
+            <button class="btn list-buisness-btn" (click)="listBusiness()">
+              List your Business
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  @if (showAdInTop) {
+  <div class="Categories-swiper-container">
+    <swiper-container #adSwiper class="mySwiper" init="false">
+
+      @for (key of showAdInTop; track $index) {
+      <swiper-slide>
+
+        <div class="banner-2" style="background-image: url({{key?.img}});"
+          (click)="CountClickStats(key?.id,key?.space_id)">
+          <div class="overlay">
+            <div class="content">
+              <h1>
+                {{key?.title}}
+              </h1>
+              <p>
+                {{key?.description}}
+              </p>
+              @if (key?.url) {
+              <div class="explore-btn-wrapper">
+                <button class="btn explore-more-btn grey-bg-btn" (click)="getUrl(key?.url)">
+                  Explore
+                </button>
+              </div>
+              }
+            </div>
+          </div>
+        </div>
+
+      </swiper-slide>
+      }
+    </swiper-container>
+  </div>
+  }
+</div>
+<section>
+  <app-buisness-category [homePageData]="homePageData"></app-buisness-category>
+</section>
+<section>
+  <app-trending-services [homePageData]="homePageData"></app-trending-services>
+</section>
+<section>
+  <app-blog-news (bannerClick)="CountClickStats($event.adId, $event.spaceId)" [homePageData]="homePageData"
+    [adDetails]="adDetails"></app-blog-news>
+</section>
+<section>
+  @if (collectionAd && homePageData) {
+    <app-events (bannerClick)="CountClickStats($event.adId, $event.spaceId)" [collectionAd]="collectionAd" [homePageData]="homePageData"></app-events>
+  }
+</section>
+<!-- <section>
+    <app-testimonials ></app-testimonials>
+</section> -->
+<section>
+  <app-explaining-platform [homePageData]="homePageData"></app-explaining-platform>
+</section>
+<section>
+  <app-plan [homePageData]="homePageData"></app-plan>
+</section>
+<section>
+  <app-cta-verified-business [homePageData]="homePageData"></app-cta-verified-business>
+</section>
+<section>
+  <app-claim-your-buisness [homePageData]="homePageData"></app-claim-your-buisness>
+</section>
+
+<section class="advertising mt-5">
+  @if (showAdInFooter) {
+  <swiper-container #footerSwiper class="mySwiper" init="false">
+
+    @for (key of showAdInFooter; track $index) {
+    <swiper-slide>
+      <div class="ads-container" style="background-image: url({{key?.img}});"
+        (click)="CountClickStats(key?.id,key?.space_id)">
+        <div class="wrapper">
+          <div class="ad-title">
+            <h1>{{key.title}}</h1>
+          </div>
+          <div class="ad-desc">
+            <p>{{key.description}}</p>
+          </div>
+          @if(key?.url){
+          <div class="explore-more-btn btn" (click)="getFooterAdUrl(key?.url)">
+            Explore
+          </div>
+          }
+        </div>
+      </div>
+    </swiper-slide>
+    }
+  </swiper-container>
+  }
+</section>
+<br/>
+<br/>
+<section>
+  <app-choose-loan-type></app-choose-loan-type>
+</section>
+<br/>
+<br/>
