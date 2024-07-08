@@ -1,0 +1,81 @@
+<div class="container-fluid g-0">
+  <section class="banner">
+    <div class="content">
+      <h1>{{pageTitle}}</h1>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="row my-5">
+      <div class="col-12 col-sm-12 col-md-4 col-xl-4">
+        <div class="sidebar-cnt">
+          <div class="sidebar-items">
+            <div class="upload-profile">
+              <div
+                class="profile-pic-div"
+                [ngClass]="{ 'uploading': isUploading }"
+              >
+                <div class="image">
+                  <img *ngIf="imgUrl" [src]="imgUrl" alt="profile" />
+                </div>
+                <label class="custom-file-upload">
+                  <input
+                    #fileInput
+                    type="file"
+                    accept="image/jpeg, image/jpg, image/png, image/webp"
+                    (change)="handleFileInput($event)"
+                  />
+                  <div class="d-flex justify-content-center icon">
+                    <i class="fa fa-camera" (click)="openFileInput($event)"></i>
+                  </div>
+                </label>
+              </div>
+            </div>
+            <!-- <p
+              class="user-email"
+              #tooltip="matTooltip"
+              matTooltip="{{userEmail}}"
+            >
+              {{ userEmail.length > 19 ? userEmail.slice(0, 19) + '...' :
+              userEmail }}
+            </p> -->
+            <p class="user-email">
+              {{userDetail?.first_name}} {{userDetail?.last_name}}
+            </p>
+
+            <div class="tabs_responsive">
+              <ul>
+                <ng-container *ngIf="!isMenuLoading; else skeletonLoading">
+                  @for(key of menuItems ; track $index){
+                  <li
+                    (click)="addClass(key.url)"
+                    [ngClass]="{ 'active': activeIndex === key.url }"
+                    [routerLink]="key.url"
+                    style="cursor: pointer"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact:
+                    true}"
+                  >
+                    <span><i [class]="key.icon"></i></span>{{ key.label }}
+                  </li>
+                  }
+                </ng-container>
+                <ng-template #skeletonLoading>
+                  <li *ngFor="let _ of [1, 2, 3, 4 , 5 ,6 , 7,8 ,9 , 10]">
+                    <app-skeleton-loading></app-skeleton-loading>
+                  </li>
+                </ng-template>
+                <li style="cursor: pointer" (click)="handleLogout()">
+                  <span><i class="fa fa-sign-out"></i></span>Logout
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-8 col-lg-8 mt-4">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

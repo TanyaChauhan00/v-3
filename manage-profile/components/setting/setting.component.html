@@ -1,0 +1,78 @@
+<h3 class="dashboard-heading">Notification Settings</h3>
+<div class="container-fluid g-0">
+  <div class="row mt-4">
+    <div class="col-12 col-md-12 col-lg-6">
+      <h5>Manage Login Notification</h5>
+    </div>
+    <div class="col-12 col-md-12 col-lg-6">
+      <mat-slide-toggle
+        [(ngModel)]="Login"
+        (change)="valueChange('Login')"
+        >On</mat-slide-toggle
+      >
+    </div>
+  </div>
+  @if(userDetails?.user_role !== userRoles.realEstate && userDetails?.user_role !== userRoles.broker){
+  <div class="row mt-4">
+    <div class="col-12 col-md-12 col-lg-6">
+      <h5>Manage Subscription Notification</h5>
+    </div>
+    <div class="col-12 col-md-12 col-lg-6">
+      <mat-slide-toggle
+        (change)="valueChange('Subscription')"
+        [(ngModel)]="Subscription"
+        >On</mat-slide-toggle
+      >
+    </div>
+  </div>
+}
+  <div class="row mt-4">
+    <div class="col-12 col-md-12 col-lg-6">
+      <h5>Manage Delete Account Notification</h5>
+    </div>
+    <div class="col-12 col-md-12 col-lg-6">
+      <mat-slide-toggle
+        (change)="valueChange('delete_account')"
+        [(ngModel)]="delete_account"
+        >On</mat-slide-toggle
+      >
+    </div>
+  </div>
+  @if(userDetails?.user_role !== userRoles.realEstate && userDetails?.user_role !== userRoles.broker){
+  <div class="row mt-4">
+    <div class="col-12 col-md-12 col-lg-6">
+      <h5>Manage Business Notification</h5>
+    </div>
+    <div class="col-12 col-md-12 col-lg-6">
+      <mat-slide-toggle
+        (change)="valueChange('business_listing')"
+        [(ngModel)]="business_listing"
+        >On</mat-slide-toggle
+      >
+    </div>
+  </div>
+}
+@if(userDetails?.user_role == userRoles.realEstate){
+  <div class="row mt-4">
+    <div class="col-12 col-md-12 col-lg-6">
+      <h5>Manage Listings Notification</h5>
+    </div>
+    <div class="col-12 col-md-12 col-lg-6">
+      <mat-slide-toggle
+        (change)="valueChange('sync_listing')"
+        [(ngModel)]="sync_listing"
+        >On</mat-slide-toggle
+      >
+    </div>
+  </div>
+}
+  <div class="row mt-4 mx-1">
+    <button class="btn orange-background-btn" (click)="allowNotification()">
+      @if (isLoader) {
+        <app-loader></app-loader>
+      } @else {
+        Save
+      }
+    </button>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+@import "../../../../assets/scss/common";
+@import "../../../../assets/scss/table.scss";
+
+.container-fluid{
+    margin-top:3rem
+}
+
+h3{
+    font-size:28px;
+}
+
+h5{
+    color:rgb(82, 82, 82);
+    font-size:25px;
+    font-weight:500
+}
+p{
+    font-size:15px
+}
+
+ul{
+    list-style-type: none;
+    margin:0px ;
+    padding:0px
+}
+    
+.change_cancel{
+    color:#144b7c;
+    cursor: pointer;
+}
+.user-email{
+    font-size:18px;
+    color:rgb(133, 133, 133);
+    font-weight:500
+}
+
+::ng-deep.mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background,
+.mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background,
+.mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true]:enabled~.mdc-checkbox__background {
+    background-color: var(--primary-color-orange) !important;
+    border-color: var(--primary-color-orange) !important;
+}
+
+::ng-deep.mdc-checkbox .mdc-checkbox__native-control:focus:checked~.mdc-checkbox__ripple {
+    background-color: var(--primary-color-orange) !important;
+
+}
+.mat-button-toggle-group {
+    background-color: aqua;
+    width: 300px;
+}
+.mat-button-toggle {
+    margin-top: 5px !important;
+    background-color:gray;
+    width: 100px;
+}
+.mat-button-toggle:hover {
+    color: red;
+    background-color: green;
+}
+.mat-button-toggle-checked {
+    background-color:blue;
+} 

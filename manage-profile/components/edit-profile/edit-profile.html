@@ -1,0 +1,108 @@
+<section>
+  <h3 class="dashboard-heading">Edit Profile</h3>
+  @if((userDetails?.user_role === role.realEstate || userDetails?.user_role === role.broker) && !isrealEstateDetails && !checkBehaviour){
+  <div class="row mt-4 mx-1">
+    <div class="alert alert-danger">  Your profile is incomplete. <span style="text-decoration: underline;font-weight:bold;cursor:pointer"    (click)="completeProfile()"> Click here to complete it</span></div>
+  </div>
+}
+  <div class="row mt-3">
+    <div class="form-group">
+      <div class="col-12">
+        <input type="text" class="input-control" [(ngModel)]="email" readonly />
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-12">
+        <input
+          type="text"
+          class="input-control"
+          [(ngModel)]="userName"
+          readonly
+        />
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-12">
+        <input
+          type="text"
+          class="input-control"
+          [(ngModel)]="first_name"
+          placeholder="Enter Your First Name"
+        />
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-12">
+        <input
+          type="text"
+          class="input-control"
+          [(ngModel)]="last_name"
+          placeholder="Enter Your Last Name"
+        />
+      </div>
+    </div>
+    @if(userDetails?.user_role === role.businessOwner){
+    <div class="form-group">
+      <div class="col-12">
+        <ngx-intl-tel-input
+          [cssClass]="'input-control'"
+          [preferredCountries]="preferredCountries"
+          [enableAutoCountrySelect]="true"
+          [enablePlaceholder]="true"
+          [searchCountryFlag]="true"
+          [searchCountryField]="[
+          SearchCountryField.Iso2,
+          SearchCountryField.Name
+        ]"
+          [selectFirstCountry]="false"
+          [selectedCountryISO]="CountryISO.India"
+          [maxLength]="15"
+          [phoneValidation]="true"
+          [separateDialCode]="true"
+          [numberFormat]="PhoneNumberFormat.National"
+          name="phone"
+          [(ngModel)]="contact_details"
+        >
+        </ngx-intl-tel-input>
+      </div>
+    </div>
+  }
+    <div class="form-group">
+      <!-- @if((userDetails?.user_role === role.realEstate || userDetails?.user_role === role.broker) && !isrealEstateDetails){
+
+      <button
+        class="btn orange-background-btn-w-100"
+        (click)="completeProfile()"
+      >
+        Complete Your Profile
+      </button>
+      } -->
+      @if((userDetails?.user_role === role.realEstate || userDetails?.user_role === role.broker) && !isrealEstateDetails){
+      <button
+        class="btn orange-background-btn-w-100"
+        (click)="handleUpdateUser()"
+      >
+        Update Profile
+      </button>
+      }@else{
+        <button
+        class="btn orange-background-btn-w-100"
+        (click)="handleUpdateUser()"
+      >
+        Update Profile
+      </button>
+      }
+    </div>
+    <br />
+    
+    @if(isrealEstateDetails || isClickedOnCompleteProfile){
+      <hr class="mt-4"/>
+    <ng-container>
+      <h4 class="dashboard-heading" style="font-size: 24px; margin-top: 0.75em">
+        Additional Details 
+      </h4>
+      <app-add-real-estate-business [userEmail]="email"></app-add-real-estate-business>
+    </ng-container>
+    }
+  </div>
+</section>

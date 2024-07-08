@@ -1,0 +1,121 @@
+@import "../../../../assets/scss/common.scss";
+@import "../../../../assets/scss/banner";
+@import "../../../../assets/scss/image-loader.scss";
+.upload-instruction {
+    color: #6c757d;
+    font-size: 12px;
+}
+.images__{
+  position: relative;
+}
+.vedio____{
+  position: relative;
+}
+div#video-preview-container{
+    // text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    overflow: scroll;
+}
+video{
+    margin: 13px!important;
+    text-align: center;
+}
+.opening-hours {
+    color: #6c757d;
+    font-size: 12px;
+}
+
+
+.table-heading {
+    --bs-table-bg: #e9ecef;
+}
+
+.table-striped tbody tr:nth-child(odd) {
+    --bs-table-bg: #ffffff;
+    --bs-table-striped-bg: #ffff;
+}
+
+.table-striped tbody tr:nth-child(even) {
+    --bs-table-bg: #f2f2f2;
+}
+
+.fa-minus-circle {
+    color: #dc3545;
+    cursor: pointer;
+}
+
+.fa-plus-circle {
+    color: #1e73be;
+    cursor: pointer;
+}
+.form-check-input:checked {
+    background-color: var(--primary-color-orange) !important;
+    border-color: var(--primary-color-orange) !important;
+  }
+  
+  .form-check-label {
+    color: var(--dark-grey);
+    font-size: 15px;
+  }
+
+  .select2-selection {
+    background: #F2F2F2 !important;
+    border-radius: 4px !important;
+    border : solid 1px rgba(128, 128, 128, 0.1882352941) !important;
+    // font-size: 14px;
+    border-color: #F2F2F2 !important;
+    // color: #232F3E !important;
+    // font-weight: 400 !important;
+    margin-top: 0 !important;
+  }
+  .select2-selection::ng-deep .ng-select-container  {            
+    min-height: 0px;
+    border-radius: 0;
+    background: #F2F2F2;
+
+    height: 45px;
+    border-radius: 6px;
+    border: 0px !important;
+  }  
+
+  
+  .select2-selection::ng-deep .ng-select-container .ng-value .ng-value-icon{  
+   
+    border-right: 1px solid #f90 !important;
+  }
+  
+  .select2-selection::ng-deep .ng-select-container .ng-value-container .ng-placeholder {
+    top: 11px;
+    padding-bottom: 5px;
+    padding-left: 3px;
+  }
+  .select2-selection::ng-deep .ng-select-container .ng-value .ng-value-icon:hover {
+    background: none!important;
+  }
+  .select2-selection::ng-deep .ng-option {
+    color: black;
+    margin-left: 35px;
+    margin-right: 35px;
+  }
+  .select2-selection::ng-deep .ng-option:hover{
+    background: #f90;
+    color: #fff;
+    border-radius: 5px;
+  }
+
+  ::ng-deep.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked::after,
+.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate::after {
+    color: var(--primary-color-mustard) !important;
+}
+
+::ng-deep.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text {
+    color: var(--primary-color-mustard) !important;
+}
+
+@media(max-width:400px){
+  .check-box-24-hr{
+    width: 48px;
+  }
+}

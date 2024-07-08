@@ -1,0 +1,356 @@
+@import "../../assets/scss/";
+@import "../../assets/scss/select.scss";
+@import "../../assets/scss/banner.scss";
+
+.sidebar-cnt {
+    height: 100%;
+    width: 80%;
+    margin: auto;
+    background-color: #f3f8fd;
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar-items {
+    margin: 0 auto;
+    width: 80%;
+    padding: 20px;
+    ul {
+        list-style-type: none;
+        margin-top: 2.5rem;
+        padding: 0;
+
+        /* Remove default padding */
+        li {
+            margin-bottom: 26px;
+            line-height: 20px;
+            color: rgba(0, 0, 0, 0.5);
+            font-size: 15px;
+
+            span {
+                margin-right: 10px;
+            }
+        }
+    }
+
+}
+
+
+.upload-profile {
+    position: relative;
+}
+
+.profile-pic-div {
+    border-radius: 50%;
+    background-color: var(--light-grey);
+    border: solid 2px #fff;
+    height: 160px;
+    width: 160px;
+    margin: auto;
+
+    .image {
+        height: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+
+    .custom-file-upload input[type=file] {
+        display: none;
+    }
+
+    .custom-file-upload {
+        .icon {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            align-items: center;
+
+            i:hover {
+                color: #1E73bE;
+            }
+        }
+
+
+    }
+
+    i {
+        cursor: pointer;
+    }
+}
+
+.image {
+    height: 100%
+}
+
+.user-email {
+    color: #1E73bE;
+    text-align: center;
+    font-weight: var(--font-weight-semibold);
+    font-size: 16px;
+    margin-top: 1rem;
+}
+
+li.active {
+    color: rgb(255, 128, 0) !important;
+}
+
+.profile-pic-div.uploading {
+    position: relative;
+}
+
+.profile-pic-div.uploading::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    /* Adjust as needed */
+    left: -3px;
+    /* Adjust as needed */
+    width: calc(100% + 6px);
+    /* Adjust as needed */
+    height: calc(100% + 6px);
+    /* Adjust as needed */
+    border: 3px solid var(--primary-color-orange);
+    /* Border color */
+    border-radius: 50%;
+    /* Make it a circle */
+    border-top-color: transparent;
+    /* Hide the top border */
+    animation: spin 2s linear infinite;
+    /* Add rotation animation */
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 1920px) {}
+
+@media screen and (max-width: 1440px) {}
+
+@media screen and (max-width:1341px) {
+
+
+    .sidebar-items {
+        margin: 0 auto;
+        width: 80%;
+        padding: 14px;
+
+
+
+    }
+
+
+    .sidebar-items {
+        margin: 0 auto;
+        width: 80%;
+        padding: 20px 35px;
+
+        ul {
+            list-style-type: none;
+            margin-top: 2.5rem;
+            padding: 0;
+
+            /* Remove default padding */
+            li {
+                margin-bottom: 26px;
+                line-height: 20px;
+                color: rgba(0, 0, 0, 0.5);
+                font-size: 14px;
+
+                span {
+                    margin-right: 10px;
+                }
+            }
+        }
+
+    }
+
+}
+
+
+@media screen and (max-width:1399px) {
+
+
+    .sidebar-items {
+        margin: 0 auto;
+        width: 80%;
+        padding: 8px;
+
+
+
+    }
+
+}
+
+@media screen and (max-width:1199px) {
+
+
+    .sidebar-items {
+        margin: 0 auto;
+        width: 80%;
+        padding: 8px;
+
+
+
+    }
+
+    .sidebar-cnt {
+        height: 100%;
+        width: 95%;
+        margin: auto;
+        background-color: #f3f8fd;
+        display: flex;
+        justify-content: center;
+
+    }
+
+}
+
+@media screen and (max-width: 1025px) {}
+
+@media screen and (max-width: 991px) {
+    .sidebar-cnt {
+        height: 100%;
+        width: 100%;
+        margin: auto;
+        background-color: #f3f8fd;
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .sidebar-items {
+        margin: 0 auto;
+        width: 80%;
+        padding: 5px;
+
+
+
+    }
+
+    .user-email {
+        color: #1E73bE;
+        text-align: center;
+        font-weight: var(--font-weight-semibold);
+        font-size: 15px;
+        margin-top: 1rem;
+        cursor: pointer
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    li.active {
+        background: orange;
+        padding: 1px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        width: 200px !important;
+        justify-content: center;
+        color: #fff !important;
+    }
+
+    .sidebar-items ul {
+        list-style-type: none;
+        margin-top: 2.5rem;
+        padding: 0;
+        display: flex !important;
+        width: fit-content;
+        margin: auto;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .sidebar-items ul li {
+        margin-bottom: 0px;
+        //  line-height: 20px; 
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 16px;
+        width: 157px !important;
+        margin-right: 14px;
+        text-align: center;
+    }
+
+    .sidebar-cnt {
+        width: 100%;
+    }
+
+    .tabs_responsive {
+        overflow: hidden;
+        border-top: solid 11px white;
+        padding-top: 24px;
+        padding-left: 27px;
+    }
+
+    .tabs_responsive:hover {
+        overflow: scroll;
+    }
+
+    // .sidebar-items ul li:nth-child(1){
+    //      width: 106px!important;
+    //  }
+    .sidebar-items {
+        margin: 0 auto;
+        width: 100%;
+        padding: 19px 0px;
+    }
+
+    // .profile-pic-div {
+    //     width: 37%;
+    //     height: 100%;
+    //     border-radius: 50%;
+    //     background-color: var(--light-grey);
+    //     border: solid 2px #fff;
+    //     margin: auto;
+    //     overflow: hidden;
+    // }
+}
+
+@media screen and (max-width: 480px) {}
+
+@media screen and (max-width: 375px) {
+
+
+
+    // .profile-pic-div {
+    //     width: 40%;
+    //     height: 100%;
+    //     border-radius: 50%;
+    //     background-color: var(--light-grey);
+    //     border: solid 2px #fff;
+    //     margin: auto;
+    //     overflow: hidden;
+    // }
+}
+
+@media screen and (max-width: 320px) {
+
+
+
+    // .profile-pic-div {
+    //     width: 49%;
+    //     height: 100%;
+    //     border-radius: 50%;
+    //     background-color: var(--light-grey);
+    //     border: solid 2px #fff;
+    //     margin: auto;
+    //     overflow: hidden;
+    // }
+}

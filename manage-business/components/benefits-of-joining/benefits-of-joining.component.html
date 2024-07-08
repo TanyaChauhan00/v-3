@@ -1,0 +1,82 @@
+<section class="banner" style="background-image: url({{benefitsData?.hero_section?.hero_section_banner_image}})">
+  <div class="content">
+    <h1>{{benefitsData?.hero_section?.hero_section_title}}</h1>
+  </div>
+</section>
+<div class="container my-5">
+  <section>
+    <h2 class="main-heading">Benefits of joining Vietlist.biz</h2>
+  </section>
+  <section class="my-4">
+    <div id="benefits" class="benefits" [innerHTML]="benefitsData?.benefits_of_joining_vietlist">
+    </div>
+  </section>
+  <br />
+  <section class="my-5">
+    <h2 class="main-heading mt-4">{{this.benefitsData?.video_for_registration?.Title}}</h2>
+
+    <div class="mt-5">
+      <iframe class="elementor-video" frameborder="0" allowfullscreen=""
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        title="Video Placeholder" width="100%" height="460" [src]="videoUrl" id=" widget2"></iframe>
+    </div>
+  </section>
+
+  <section>
+    <div class="start-new-business-section" [innerHTML]="benefitsData?.start_new_business">
+    </div>
+    <p class="add-new-business">
+      Let the world discover the brilliance you bring :
+      <a (click)="addBusiness()" style="color: #FF9900; text-decoration: underline; cursor: pointer"
+        data-wplink-edit="true">Add new business&nbsp;</a>
+    </p>
+  </section>
+  <section>
+
+    <div class="existing" [innerHTML]="benefitsData?.existing_business">
+    </div>
+    <div>
+      @if(!checkAuthentication){
+      <p class="login">
+        Access and optimize your business listing:
+        <a style="color: #FF9900" [routerLink]="['/login']"> Log in </a>
+      </p>
+      }
+    </div>
+    <div class="claim-listing" [innerHTML]="benefitsData?.charge_of_your_business">
+    </div>
+    <div class="claim-text" [innerHTML]="benefitsData?.claim_your_listing"></div>
+  </section>
+</div>
+<section class="container-fluid">
+  @if (benefitsAds) {
+  <div class="media-container">
+    <swiper-container #benefitJoining class="mySwiper" init="false">
+
+      @for (key of benefitsAds; track $index) {
+      <swiper-slide>
+        <div class="ads-container" style="background-image: url({{key?.img}})"
+          (click)="CountClickStats(key?.id,key?.space_id)">
+          <div class="wrapper">
+            <div class="content-wrapper">
+              <div class="ad-title">
+                <h1>{{key.title}}</h1>
+              </div>
+              <div class="ad-desc">
+                <p>{{key.description}}</p>
+              </div>
+              @if(key?.url){
+              <div class="explore-more-btn btn" (click)="getFooterAdUrl(key?.url)">
+                Explore
+              </div>
+              }
+            </div>
+          </div>
+        </div>
+      </swiper-slide>
+      }
+    </swiper-container>
+  </div>
+  }
+
+</section>

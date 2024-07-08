@@ -1,0 +1,55 @@
+<section>
+  <h3 class="dashboard-heading"> Synced Listings</h3>
+  <div class="row my-3">
+    <h4 class="dashboard-heading" style="font-size:16px">To generate an API key for the Zillow56 API on RapidAPI, follow these steps:</h4>
+    <p class="mt-2"> <li class='fa-solid fa-external-link' ></li> Visit the <span><a href="https://rapidapi.com/s.mahmoud97/api/zillow56">Zillow56 API page on RapidAPI.</a></span></p>
+    <p> <li class='fa-solid fa-user-plus' ></li> Click the "Sign Up" button if you do not have a RapidAPI account, or log in if you already have one.
+    </p>
+    <p> <li class='fa-solid fa-check-circle' ></li> Once logged in, click the "Subscribe to Test" button to choose a subscription plan (including the free tier)</p>
+    <p> <li class='fa-solid fa-key' ></li> After subscribing, navigate to the "Endpoints" tab where you will find your unique API key from the dashboard.</p>
+    <p class="mt-2 text-muted " style='font-size: 12px;' >
+      <li class="fa-solid fa-info-circle "></li>
+      This key can be used to authenticate your requests to the Zillow56 API.
+    </p>
+  </div>
+  <form>
+    <div class="row mt-4">
+      <div class="col-12 col-md-9">
+        <div class="input-group">
+          <input
+            type="password"
+            class="input-control"
+            placeholder="Enter API Key"
+            [formControl]="mls_api_key"
+          />
+        </div>
+    </div>
+        <div class="col-12 col-md-3">
+          <button class="btn add-key" (click)="setKey()">
+           <span *ngIf="!loader">Add Key </span>
+            <app-loader *ngIf="loader"></app-loader>
+          </button>
+        </div>
+  
+    </div>
+    <div class="row mt-3">
+      <!-- <div class="col-12 col-md-9">
+        <AutocompleteComponent
+          aria-placeholder="Address"
+          class="direction-field"
+          (setAddress)="getAddress($event)"
+          adressType="geocode"
+          [value]="direction"
+        >
+        </AutocompleteComponent>
+    </div> -->
+        <div class="col-12">
+          <button class="btn sync-listing" style="width:fit-content" (click)="sync()">
+            <span *ngIf="!loader2">Sync Listings</span>
+            <app-loader *ngIf="loader2"></app-loader>
+          </button>
+        </div>
+    
+    </div>
+  </form>
+</section>
